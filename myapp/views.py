@@ -1,5 +1,5 @@
 import logging
-from ebdjango.myapp import config
+from myapp import config
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, HttpResponseForbidden
