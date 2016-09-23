@@ -50,7 +50,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'ebdjango.myapp.urls'
+ROOT_URLCONF = 'myapp.urls'
 
 TEMPLATES = [
     {
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'ebdjango.myapp.wsgi.application'
+WSGI_APPLICATION = 'myapp.wsgi.application'
 
 
 # Database
