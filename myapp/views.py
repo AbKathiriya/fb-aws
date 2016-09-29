@@ -9,8 +9,10 @@ from django.http import HttpResponse, HttpResponseForbidden
 logger = logging.getLogger(__name__)
 
 def index(request):
-    return render(request, 'output.html', {'req' : request,'content':'This is the index method'})
-    # return HttpResponse("Hello World !! Welcome to my app")
+    f = open('op.txt','w')
+    f.write(request.method)
+    # return render(request, 'output.html', {'req' : request,'content':'This is the index method'})
+    return HttpResponse("Hello World !! Welcome to my app")
 
 
 # http://fbnotify-env.ap-south-1.elasticbeanstalk.com/fb/callback/
