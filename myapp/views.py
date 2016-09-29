@@ -7,7 +7,7 @@ from django.http import HttpResponse, HttpResponseForbidden
 logger = logging.getLogger(__name__)
 
 def index(request):
-    f = open("/var/logs/op.txt",'w')
+    f = open("/opt/op.txt",'w')
     f.write('index called')
     f.write(request)
     return HttpResponse("Hello World !! Welcome to my app")
