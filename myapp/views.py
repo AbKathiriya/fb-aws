@@ -8,7 +8,7 @@ from django.http import HttpResponse, HttpResponseForbidden
 # logger = logging.getLogger(__name__)
 
 def index(request):
-    return render(request, 'output.html', {'req' : request.GET,'content':'This is the index method'})
+    return render(request, 'output.html', {'req' : request,'content':'This is the index method'})
     # return HttpResponse("Hello World !! Welcome to my app")
 
 
@@ -16,14 +16,14 @@ def index(request):
 @csrf_exempt
 def realtime_subscription_callback(request):
     if request.method == 'GET':
-        return render(request, 'output.html', {'req' : request.GET,'content':'This is callback function GET'})
+        return render(request, 'output.html', {'req' : request,'content':'This is callback function GET'})
         if request.GET.get('hub.mode') == 'subscribe' and request.GET.get("hub.verify_token") == config.FACEBOOK_REALTIME_VERIFY_TOKEN:
             challenge = request.GET.get('hub.challenge')
             return HttpResponse(challenge, content_type='text/plain')
         else:
             return HttpResponse()
     elif request.method == 'POST':
-        return render(request, 'output.html', {'req' : request.POST,'content':'This is callback function POST'})
+        return render(request, 'output.html', {'req' : request,'content':'This is callback function POST'})
         # post_body = simplejson.loads(request.body)
         # object_type = post_body.get('object')
         # entries = post_body.get('entry', [])
