@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 def index(request):
     f = open('op.txt','w')
-    f.write(str(request.GET))
+    f.write("index->index"+str(request.GET))
     # return render(request, 'output.html', {'req' : request,'content':'This is the index method'})
     return HttpResponse("Hello World !! Welcome to my app")
 
@@ -20,7 +20,7 @@ def index(request):
 def realtime_subscription_callback(request):
     f = open('op.txt','w')
     if request.method == 'GET':
-        f.write(str(request.GET))
+        f.write("callback->GET"+str(request.GET))
         if request.GET.get('hub.mode') == 'subscribe' and request.GET.get("hub.verify_token") == config.FACEBOOK_REALTIME_VERIFY_TOKEN:
             challenge = request.GET.get('hub.challenge')
             return HttpResponse(challenge, content_type='text/plain')
@@ -28,7 +28,7 @@ def realtime_subscription_callback(request):
             return HttpResponse()
     elif request.method == 'POST':
         post_body = json.loads(request.body)
-        f.write(str(post_body))
+        f.write("callback->POST"+str(post_body))
         object_type = post_body.get('object')
         entries = post_body.get('entry', [])
         for entry in entries:
