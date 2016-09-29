@@ -13,8 +13,9 @@ def index(request):
 # http://fbnotify-env.ap-south-1.elasticbeanstalk.com/fb/callback/
 @csrf_exempt
 def realtime_subscription_callback(request):
-    print ('realtime_subscription_callback function called')
-    print (request)
+    f = open("/home/op.txt",'w')
+    f.write('realtime_subscription_callback function called')
+    f.write(request)
     if request.method == 'GET':
         if request.GET.get('hub.mode') == 'subscribe' and request.GET.get("hub.verify_token") == config.FACEBOOK_REALTIME_VERIFY_TOKEN:
             challenge = request.GET.get('hub.challenge')
