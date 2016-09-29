@@ -1,10 +1,10 @@
-import logging
+# import logging
 from myapp import config
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, HttpResponseForbidden
 
-logger = logging.getLogger(__name__)
+# logger = logging.getLogger(__name__)
 
 def index(request):
     f = open("/opt/op.txt",'w')
@@ -14,7 +14,7 @@ def index(request):
 
 
 # http://fbnotify-env.ap-south-1.elasticbeanstalk.com/fb/callback/
-@csrf_exempt
+# @csrf_exempt
 def realtime_subscription_callback(request):
     f = open("/opt/op.txt",'w')
     f.write('realtime_subscription_callback function called')
