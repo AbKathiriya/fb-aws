@@ -27,7 +27,7 @@ def realtime_subscription_callback(request):
         else:
             return HttpResponse()
     elif request.method == 'POST':
-        post_body = json.loads(request.body)
+        post_body = json.loads(request.POST)
         f.write("callback->POST"+str(post_body))
         object_type = post_body.get('object')
         entries = post_body.get('entry', [])
