@@ -14,7 +14,7 @@ def index(request):
     # return render(request, 'output.html', {'req' : request,'content':'This is the index method'})
     return HttpResponse("Hello World !! Welcome to my app")
 
-
+# https://akash-test.cuttriss.com/fb/callback/?hub.mode=subscribe&hub.challenge=1059173413&hub.verify_token=EAAYMKM6G2LkBACwZBXsmw4jaNePnma9ND7iGUdkAQU1SyjJ6hk9B11g7kK8RvQIwyUmtcXDjEAzWW42OyJ73rDnJZC8aVCzQZCGhd5QEhGlcxstTi7lpEI4v56GwhF8EgAbhdv4NVOFe7fT0fPcEPpirsFqt8QZD
 # http://fbnotify-env.ap-south-1.elasticbeanstalk.com/fb/callback/
 # @csrf_exempt
 def realtime_subscription_callback(request):
