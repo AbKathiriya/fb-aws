@@ -16,7 +16,7 @@ def index(request):
 
 
 # http://fbnotify-env.ap-south-1.elasticbeanstalk.com/fb/callback/
-@csrf_exempt
+# @csrf_exempt
 def realtime_subscription_callback(request):
     f = open('op.txt','w')
     if request.method == 'GET':
